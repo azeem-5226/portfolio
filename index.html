@@ -311,14 +311,19 @@
   </div>
 
   <!-- ================= JS ================= -->
-  <script>
-    function openCertificate(file) {
-      const modal = document.getElementById("certificateModal");
-      const frame = document.getElementById("certificateFrame");
-      frame.src = file;
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-    }
+
+
+
+<script>
+  function openCertificate(file) {
+    const modal = document.getElementById("certificateModal");
+    const frame = document.getElementById("certificateFrame");
+
+    frame.src = "https://docs.google.com/gview?url=" + window.location.origin + "/" + file + "&embedded=true";
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
     function closeCertificate() {
       const modal = document.getElementById("certificateModal");
       const frame = document.getElementById("certificateFrame");
@@ -463,5 +468,6 @@ function openBook(index) {
   </script>
 </body>
 </html>
+
 
 
