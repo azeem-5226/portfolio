@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azeem Noor | Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ================= SKILLS MOVE ================= */
+    @keyframes skillmove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-skillmove {
+      animation: skillmove 5s linear infinite;
+      will-change: transform;
+    }
+
+    .skill-card {
+      background: #111827;
+      padding: 14px 28px;
+      border-radius: 9999px;
+      font-weight: 600;
+      color: #22d3ee;
+      border: 1px solid #22d3ee55;
+      white-space: nowrap;
+    }
+
+    /* ================= HERO ROTATING RING ================= */
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .animate-spin-slow {
+      animation: spinSlow 5s linear infinite;
+    }
+
+    .animate-spin-slow:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white scroll-smooth">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="fixed top-0 w-full bg-gray-900/90 backdrop-blur z-40">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+
+      <a href="#home" class="text-2xl font-bold text-cyan-400">Portfolio</a>
+
+      <nav class="hidden md:block">
+        <ul class="flex gap-6 text-sm font-medium">
+          <li><a href="#home" class="hover:text-cyan-400">Home</a></li>
+          <li><a href="#skills" class="hover:text-cyan-400">Skills</a></li>
+          <li><a href="#certificates" class="hover:text-cyan-400">Certificates</a></li>
+          <li><a href="#contact" class="hover:text-cyan-400">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button onclick="toggleMenu()" class="md:hidden text-cyan-400 text-2xl">☰</button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu" class="md:hidden hidden bg-gray-900 border-t border-gray-700">
+      <ul class="flex flex-col text-sm font-medium">
+        <li><a href="#home" onclick="toggleMenu()" class="block px-6 py-3 hover:bg-gray-800">Home</a></li>
+        <li><a href="#skills" onclick="toggleMenu()" class="block px-6 py-3 hover:bg-gray-800">Skills</a></li>
+        <li><a href="#certificates" onclick="toggleMenu()" class="block px-6 py-3 hover:bg-gray-800">Certificates</a></li>
+        <li><a href="#contact" onclick="toggleMenu()" class="block px-6 py-3 hover:bg-gray-800">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="h-20"></div>
+
+  <!-- ================= HERO ================= -->
+  <section id="home" class="min-h-screen flex items-center">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
+      <div class="space-y-5">
+        <p class="text-cyan-400">Hello, I'm</p>
+
+        <h1 class="text-4xl md:text-5xl font-extrabold">
+          Azeem <span class="text-cyan-400">Noor</span>
+        </h1>
+
+        <p class="text-gray-400 max-w-md">
+          B.Sc IT third-year student, passionate about becoming a Software Engineer
+          and building clean, scalable and efficient web solutions.
+        </p>
+
+        <div class="flex gap-4 pt-3">
+          <a href="/certificate/azeem-resume.pdf" class="bg-cyan-500 hover:bg-cyan-600 text-black px-6 py-3 rounded-lg font-semibold">
+            View Resume
+          </a>
+          <a href="#contact" class="border border-cyan-400 text-cyan-400 px-6 py-3 rounded-lg font-semibold">
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="flex justify-center">
+        <div class="relative w-[320px] h-[320px] md:w-[520px] md:h-[520px] flex items-center justify-center">
+          <div class="absolute w-full h-full rounded-full bg-cyan-400 opacity-20 blur-3xl"></div>
+          <div class="absolute inset-0 rounded-full border-[8px] border-cyan-400 animate-spin-slow"
+            style="border-top-color: transparent;"></div>
+
+          <img src="images/azeem2.jpg" alt="Azeem Noor"
+            class="w-[300px] h-[300px] md:w-[480px] md:h-[480px] rounded-full object-cover border-4 border-gray-900 shadow-2xl z-10" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills" class="py-20 bg-gray-800 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-10 text-cyan-400">Skills</h2>
+
+      <div class="relative w-full overflow-hidden">
+        <div class="flex gap-8 whitespace-nowrap animate-skillmove">
+          <span class="skill-card">HTML</span>
+          <span class="skill-card">CSS</span>
+          <span class="skill-card">JavaScript</span>
+          <span class="skill-card">Tailwind</span>
+          <span class="skill-card">Python</span>
+          <span class="skill-card">Node.js</span>
+          <span class="skill-card">MongoDB</span>
+          <span class="skill-card">SQL</span>
+          <span class="skill-card">Git & GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" class="py-20 bg-gray-900">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <h2 class="text-3xl font-bold text-center text-cyan-400 mb-12">
+        My Projects
+      </h2>
+
+      <!-- PROJECT CARDS -->
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div onclick="openBook(0)" class="cursor-pointer bg-gray-800 border border-cyan-400/30
+               rounded-2xl p-6 hover:-translate-y-2 transition
+               hover:shadow-[0_0_30px_#22d3ee33]">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-2">
+            AutoMob-Mechanic
+          </h3>
+          <p class="text-gray-400">
+            Vehicle service booking web application
+          </p>
+        </div>
+
+        <div onclick="openBook(1)" class="cursor-pointer bg-gray-800 border border-cyan-400/30
+               rounded-2xl p-6 hover:-translate-y-2 transition
+               hover:shadow-[0_0_30px_#22d3ee33]">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-2">
+            Recipe App
+          </h3>
+          <p class="text-gray-400">
+            Dynamic recipe search application
+          </p>
+        </div>
+
+        <div onclick="openBook(2)" class="cursor-pointer bg-gray-800 border border-cyan-400/30
+               rounded-2xl p-6 hover:-translate-y-2 transition
+               hover:shadow-[0_0_30px_#22d3ee33]">
+          <h3 class="text-xl font-semibold text-cyan-400 mb-2">
+            Zoom Clone
+          </h3>
+          <p class="text-gray-400">
+            Real-time video calling platform
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOOK MODAL ================= -->
+  <div id="book" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+
+    <div id="bookPage" class="bg-gray-950 w-[90%] max-w-3xl h-[420px]
+           rounded-2xl p-8 relative
+           origin-left scale-x-0 transition-transform duration-500">
+
+      <!-- Close -->
+      <button onclick="closeBook()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+        ✕
+      </button>
+
+      <!-- Content -->
+      <h2 id="bookTitle" class="text-2xl font-bold text-cyan-400 mb-3"></h2>
+
+      <p id="bookDesc" class="text-gray-300 mb-6"></p>
+
+      <!-- Screenshots -->
+      <div id="projectImages" class="grid grid-cols-2 gap-4"></div>
+
+    </div>
+  </div>
+
+  <!-- ================= IMAGE PREVIEW ================= -->
+  <div id="imagePreview" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[60]">
+
+    <img id="previewImg" class="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl
+           transition-transform duration-300 scale-90" />
+
+  </div>
+
+  <!-- ================= CERTIFICATES ================= -->
+  <section id="certificates" class="py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-10 text-cyan-400">Certificates</h2>
+
+      <div class="space-y-6">
+
+        <div onclick="openCertificate('Certificate/JavaScript.pdf')"
+          class="cursor-pointer bg-teal-700 py-10 rounded text-center hover:opacity-90">
+          <h3 class="text-xl font-semibold">JavaScript Certificate</h3>
+          <p class="opacity-80">Infosys Springboard</p>
+          <p class="text-sm mt-3">Click to view</p>
+        </div>
+
+        <div onclick="openCertificate('Certificate/HTML5.pdf')"
+          class="cursor-pointer bg-teal-700 py-10 rounded text-center hover:opacity-90">
+          <h3 class="text-xl font-semibold">HTML5 Certificate</h3>
+          <p class="opacity-80">Web Development Basics</p>
+          <p class="text-sm mt-3">Click to view</p>
+        </div>
+
+        <div onclick="openCertificate('Certificate/css3.pdf')"
+          class="cursor-pointer bg-slate-800 py-10 rounded text-center hover:opacity-90">
+          <h3 class="text-xl font-semibold">CSS3 Certificate</h3>
+          <p class="opacity-80">Responsive Design</p>
+          <p class="text-sm mt-3">Click to view</p>
+        </div>
+
+        <div onclick="openCertificate('Certificate/Advanced HTML Concepts.pdf')"
+          class="cursor-pointer bg-teal-700 py-10 rounded text-center hover:opacity-90">
+          <h3 class="text-xl font-semibold">Advanced HTML</h3>
+          <p class="opacity-80">HTML Concepts</p>
+          <p class="text-sm mt-3">Click to view</p>
+        </div>
+
+        <div onclick="openCertificate('Certificate/Frontend web developer (udemy).pdf')"
+          class="cursor-pointer bg-slate-800 py-10 rounded text-center hover:opacity-90">
+          <h3 class="text-xl font-semibold">Frontend Web Developer</h3>
+          <p class="opacity-80">Udemy</p>
+          <p class="text-sm mt-3">Click to view</p>
+        </div>
+
+        <div onclick="openCertificate('certificate/CCNA.pdf')"
+          class="cursor-pointer bg-teal-700 py-10 rounded text-center hover:opacity-90">
+          <h3 class="text-xl font-semibold">CCNA</h3>
+          <p class="opacity-80">Networking</p>
+          <p class="text-sm mt-3">Click to view</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT FORM ================= -->
+  <section id="contact" class="py-20 bg-gray-800">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-10 text-cyan-400">Contact Me</h2>
+
+      <form class="space-y-6 max-w-xl mx-auto">
+        <input type="text" placeholder="Your Name"
+          class="w-full p-4 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400">
+
+        <input type="email" placeholder="Your Email"
+          class="w-full p-4 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400">
+
+        <textarea rows="5" placeholder="Your Message"
+          class="w-full p-4 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400"></textarea>
+
+        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-3 rounded">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="py-6 text-center text-gray-500">
+    © 2026 Azeem Noor
+  </footer>
+
+  <!-- ================= CERTIFICATE MODAL ================= -->
+  <div id="certificateModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+
+    <div class="bg-white w-[95%] md:w-[75%] h-[85%] rounded-lg overflow-hidden relative">
+      <button onclick="closeCertificate()" class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded">
+        ✕
+      </button>
+      <iframe id="certificateFrame" class="w-full h-full"></iframe>
+    </div>
+  </div>
+
+  <!-- ================= JS ================= -->
+  <script>
+    function openCertificate(file) {
+      const modal = document.getElementById("certificateModal");
+      const frame = document.getElementById("certificateFrame");
+      frame.src = file;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+    function closeCertificate() {
+      const modal = document.getElementById("certificateModal");
+      const frame = document.getElementById("certificateFrame");
+      frame.src = "";
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    // <!-- ================= PROJECTS ================= -->
+
+    const projects = [
+      {
+        title: "AutoMob-Mechanic",
+        desc: "A complete vehicle service booking system with admin panel and reports.",
+        images: ["images/automob1.png", "images/automob2.png"]
+        // baad me: ["images/automob1.png", "images/automob2.png","images/automob1.png","images/automob1.png"]
+      },
+      {
+        title: "Recipe App",
+        desc: "A responsive recipe application with search and filter features.",
+        images:  []
+      },
+      {
+        title: "Zoom Clone",
+        desc: "Real-time video calling app built using React, Node.js and Socket.IO.",
+        images: []
+      }
+    ];
+
+    function openBook(index) {
+      const project = projects[index];
+
+      document.getElementById("bookTitle").innerText = project.title;
+      document.getElementById("bookDesc").innerText = project.desc;
+
+      const imageContainer = document.getElementById("projectImages");
+imageContainer.innerHTML = "";
+
+project.images.forEach(src => {
+  const img = document.createElement("img");
+  img.src = src;
+  img.onclick = () => openImage(src);
+  img.className =
+    "w-full h-36 object-cover rounded-lg border border-cyan-400/20 cursor-zoom-in hover:scale-105 transition";
+  imageContainer.appendChild(img);
+});
+
+
+
+
+function openBook(index) {
+  const project = projects[index];
+
+  document.getElementById("bookTitle").innerText = project.title;
+  document.getElementById("bookDesc").innerText = project.desc;
+
+  const imageContainer = document.getElementById("projectImages");
+  imageContainer.innerHTML = "";
+
+  if (!project.images || project.images.length === 0) {
+    imageContainer.innerHTML = "<p class='text-gray-400'>No screenshots added</p>";
+  } else {
+    project.images.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.onclick = () => openImage(src);
+      img.className =
+        "w-full h-36 object-cover rounded-lg border border-cyan-400/20 cursor-zoom-in hover:scale-105 transition";
+      imageContainer.appendChild(img);
+    });
+  }
+
+  const modal = document.getElementById("book");
+  const page = document.getElementById("bookPage");
+
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+
+  setTimeout(() => {
+    page.classList.remove("scale-x-0");
+    page.classList.add("scale-x-100");
+  }, 50);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+      const modal = document.getElementById("book");
+      const page = document.getElementById("bookPage");
+
+      modal.classList.remove("hidden");
+      setTimeout(() => {
+        page.classList.remove("scale-x-0");
+        page.classList.add("scale-x-100");
+      }, 50);
+    }
+
+    function closeBook() {
+      const modal = document.getElementById("book");
+      const page = document.getElementById("bookPage");
+
+      page.classList.add("scale-x-0");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+      }, 300);
+    }
+
+    /* ===== IMAGE PREVIEW ===== */
+    function openImage(src) {
+      if (!src) return;
+      const preview = document.getElementById("imagePreview");
+      const img = document.getElementById("previewImg");
+
+      img.src = src;
+      preview.classList.remove("hidden");
+
+      setTimeout(() => {
+        img.classList.remove("scale-90");
+        img.classList.add("scale-100");
+      }, 50);
+    }
+
+    document.getElementById("imagePreview").onclick = function () {
+      this.classList.add("hidden");
+    };
+
+    // <!-- ================= NAVBAR ================= -->
+
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    }
+
+  </script>
+</body>
+</html>
