@@ -272,28 +272,35 @@
       </div>
     </div>
   </section>
+<!-- ================= CONTACT FORM ================= -->
+<section id="contact" class="py-20 bg-gray-800">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-10 text-cyan-400">Contact Me</h2>
 
-  <!-- ================= CONTACT FORM ================= -->
-  <section id="contact" class="py-20 bg-gray-800">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-10 text-cyan-400">Contact Me</h2>
+    <form action="https://formsubmit.co/YOURMAIL@gmail.com" method="POST" class="space-y-6 max-w-xl mx-auto">
 
-      <form class="space-y-6 max-w-xl mx-auto">
-        <input type="text" placeholder="Your Name"
-          class="w-full p-4 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400">
+      <!-- Important hidden settings -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
 
-        <input type="email" placeholder="Your Email"
-          class="w-full p-4 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400">
+      <input type="text" name="name" placeholder="Your Name" required
+        class="w-full p-4 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400">
 
-        <textarea rows="5" placeholder="Your Message"
-          class="w-full p-4 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400"></textarea>
+      <input type="email" name="email" placeholder="Your Email" required
+        class="w-full p-4 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400">
 
-        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-3 rounded">
-          Send Message
-        </button>
-      </form>
-    </div>
-  </section>
+      <textarea name="message" rows="5" placeholder="Your Message" required
+        class="w-full p-4 rounded bg-gray-900 border border-gray-700 focus:outline-none focus:border-cyan-400"></textarea>
+
+      <button type="submit"
+        class="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-3 rounded">
+        Send Message
+      </button>
+
+    </form>
+  </div>
+</section>
+
 
   <footer class="py-6 text-center text-gray-500">
     © 2026 Azeem Noor
@@ -463,4 +470,5 @@ function openBook(index) {
   </script>
 </body>
 </html>
+
 
