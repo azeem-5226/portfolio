@@ -453,10 +453,14 @@
                     Fullstack developer with high level of experience in web designing and development. Interested to explore beautiful Tech-World.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-8 reveal-left delay-300">
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6 reveal-left delay-300">
                     <a href="#contact"
                         class="px-8 py-3 bg-[#f59e0b] text-black rounded-full font-bold shadow-[0_0_20px_rgba(245,158,11,0.5)] hover:bg-[#d97706] hover:text-textMain hover:shadow-[0_0_30px_rgba(245,158,11,0.7)] transition-all transform hover:scale-105 text-center">
-                        Hire me
+                        Contact
+                    </a>
+                    <a href="resume.pdf" download
+                        class="px-8 py-3 border-2 border-[#f59e0b] text-[#f59e0b] rounded-full font-bold hover:bg-[#f59e0b] hover:text-black hover:shadow-[0_0_30px_rgba(245,158,11,0.7)] transition-all transform hover:scale-105 text-center flex items-center gap-2">
+                        Resume <i class="fas fa-download"></i>
                     </a>
                 </div>
 
@@ -764,11 +768,11 @@
                     </div>
                 </div>
 
-                <!-- Card 3: Zoom Clone -->
+                <!-- Card 3: Streamify -->
                 <div class="bg-bgSurface border border-borderMain rounded-3xl p-5 hover:border-accent hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] transition-all duration-300 group cursor-pointer reveal delay-200" onclick="openProjectModal(2)">
                     <!-- Image Area -->
                     <div class="relative bg-bgMain rounded-2xl aspect-[4/3] flex items-center justify-center mb-6 overflow-hidden">
-                        <img src="images/zoom.png" alt="Zoom Clone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="images/Streamify.png" alt="Streamify" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         
                         <!-- Hover Links -->
                         <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -781,7 +785,7 @@
                         </div>
                     </div>
                     <!-- Content -->
-                    <h3 class="text-2xl font-display font-bold text-textMain mb-3 group-hover:text-accent transition-colors">Zoom Clone</h3>
+                    <h3 class="text-2xl font-display font-bold text-textMain mb-3 group-hover:text-accent transition-colors">Streamify</h3>
                     <p class="text-sm text-textMuted leading-relaxed mb-6 line-clamp-3">Real-time video calling application built with WebRTC peer connections, Socket.IO signalling, and a React frontend. Supports room creation.</p>
                     <!-- Tags -->
                     <div class="flex flex-wrap gap-3 mt-auto">
@@ -793,6 +797,7 @@
                 </div>
 
             </div>
+
         </div>
     </section>
 
@@ -1101,7 +1106,7 @@
         });
 
         // --- Typewriter Effect ---
-        const phrases = ["Developer, Entrepreneur, Coffee Lover", "Fullstack Developer.", "UI/UX Designer.", "SEO & AI Specialist."];
+        const phrases = ["Software Engineer.", "Fullstack Developer.", "UI/UX Designer.", "SEO & AI Specialist."];
         let currentPhrase = 0;
         let isDeleting = false;
         let text = '';
@@ -1208,7 +1213,7 @@
             },
             {
                 tag: 'Realtime',
-                title: 'Zoom Clone',
+                title: 'Streamify',
                 desc: 'A real-time video calling application built with WebRTC peer connections, Socket.IO signalling, and a React frontend. Supports room creation via unique codes, in-call chat, and mute/camera toggle controls.',
                 tech: ['React', 'Node.js', 'Socket.IO', 'WebRTC', 'CSS Modules']
             }
