@@ -323,6 +323,31 @@
             display: none;
         }
 
+        /* Project card action buttons */
+        #portfolio-grid a[title="GitHub"] {
+            background: #24292f;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+
+        #portfolio-grid a[title="GitHub"]:hover {
+            background: #475569;
+            color: #ffffff;
+            box-shadow: 0 0 18px rgba(148, 163, 184, 0.55);
+        }
+
+        #portfolio-grid a[title="Live Demo"] {
+            background: #8b5cf6;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(139, 92, 246, 0.55);
+        }
+
+        #portfolio-grid a[title="Live Demo"]:hover {
+            background: #a78bfa;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(167, 139, 250, 0.8);
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -783,7 +808,7 @@
                 <div class="bg-bgSurface border border-borderMain rounded-3xl p-5 hover:border-accent hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] transition-all duration-300 group cursor-pointer reveal delay-200" onclick="openProjectModal(2)">
                     <!-- Image Area -->
                     <div class="relative bg-bgMain rounded-2xl aspect-[4/3] flex items-center justify-center mb-6 overflow-hidden">
-                        <img src="images/streamify-thumb-people-light.svg" alt="Streamify" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="images/streamify-image.png" alt="Streamify video calling platform" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
                         
                         <!-- Hover Links -->
                         <div class="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -797,7 +822,7 @@
                     </div>
                     <!-- Content -->
                     <h3 class="text-2xl font-display font-bold text-textMain mb-3 group-hover:text-accent transition-colors">Streamify</h3>
-                    <p class="text-sm text-textMuted leading-relaxed mb-6 line-clamp-3">Real-time video calling application built with WebRTC peer connections, Socket.IO signalling, and a React frontend. Supports room creation.</p>
+                    <p class="text-sm text-textMuted leading-relaxed mb-6 line-clamp-3">A modern real-time video calling and communication platform for secure conversations, messaging, friend discovery, groups, and more.</p>
                     <!-- Tags -->
                     <div class="flex flex-wrap gap-3 mt-auto">
                         <span class="text-sm font-medium text-cyan-400">#react</span>
@@ -935,11 +960,33 @@
             class="absolute top-6 right-6 text-textMain hover:text-accent text-3xl transition-colors cursor-pointer w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20">
             &times;
         </button>
-        <div class="max-w-3xl w-full glass-card rounded-3xl p-8 md:p-10" id="lightbox-content">
-            <span id="lightbox-tag" class="text-xs font-bold text-accent uppercase tracking-widest"></span>
-            <h3 id="lightbox-title" class="text-textMain text-2xl md:text-3xl font-display font-bold mt-2 mb-4"></h3>
-            <p id="lightbox-desc" class="text-textMuted leading-relaxed mb-6"></p>
-            <div id="lightbox-tech" class="flex flex-wrap gap-2"></div>
+        <div class="max-w-4xl w-full max-h-[90vh] overflow-y-auto glass-card rounded-3xl p-6 md:p-10" id="lightbox-content">
+            <div id="lightbox-image-wrap" class="hidden mb-8 overflow-hidden rounded-2xl border border-borderMain bg-bgMain aspect-video">
+                <img id="lightbox-image" src="" alt="" class="w-full h-full object-contain">
+            </div>
+            <span id="lightbox-tag" class="inline-flex rounded-full bg-accent/15 border border-accent/30 px-3 py-1 text-xs font-bold text-accent uppercase tracking-widest"></span>
+            <h3 id="lightbox-title" class="text-textMain text-3xl md:text-4xl font-display font-bold mt-4 mb-6 leading-tight"></h3>
+            <div class="mb-6 rounded-2xl border border-accent/25 bg-accent/5 p-5 md:p-6">
+                <h4 class="mb-3 text-sm font-bold uppercase tracking-wider text-accent">Project Overview</h4>
+                <p id="lightbox-desc" class="text-textMain text-base md:text-lg leading-8 font-medium"></p>
+            </div>
+            <div id="lightbox-details" class="hidden mb-6 space-y-6">
+                <div id="lightbox-focus-wrap" class="hidden rounded-2xl border border-borderMain bg-bgMain/40 p-5">
+                    <h4 class="mb-2 text-sm font-bold uppercase tracking-wider text-accent">Project Focus</h4>
+                    <p id="lightbox-focus" class="text-textMain leading-7"></p>
+                </div>
+                <div id="lightbox-features-wrap" class="hidden rounded-2xl border border-borderMain bg-bgMain/40 p-5">
+                    <h4 class="mb-3 text-sm font-bold uppercase tracking-wider text-accent">Key Features</h4>
+                    <ul id="lightbox-features" class="grid gap-3 sm:grid-cols-2 text-textMain"></ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-borderMain">
+                <h4 class="text-sm font-bold text-textMain uppercase tracking-wider mb-3">Key Technologies</h4>
+                <div id="lightbox-tech" class="flex flex-wrap gap-2"></div>
+                <a id="lightbox-live-link" href="#" target="_blank" rel="noopener noreferrer" class="hidden inline-flex items-center mt-6 px-5 py-3 rounded-xl bg-accent text-white font-semibold hover:bg-purple-600 transition-colors">
+                    View Live Project <i class="fas fa-external-link-alt ml-2"></i>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -1214,19 +1261,29 @@
                 tag: 'Fullstack',
                 title: 'AutoMob-Mechanic',
                 desc: 'A complete vehicle service booking system with an admin dashboard, service slot management, booking reports, and customer management. Built with a Node.js backend connected to MongoDB.',
-                tech: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'MongoDB', 'Express.js']
+                tech: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'MongoDB', 'Express.js'],
+                image: 'images/automob1.png',
+                imageAlt: 'AutoMob-Mechanic vehicle service platform'
             },
             {
                 tag: 'Healthcare',
                 title: 'Al-Shifa Clinic',
                 desc: 'Al-Shifa Clinic is a modern healthcare management software designed to simplify and organize daily clinic operations. It provides an easy-to-use platform for managing patient records, doctor information, appointments, prescriptions, billing, and other essential clinic activities in one place.',
-                tech: ['Frontend', 'Healthcare Management', 'Responsive Design', 'Patient Management', 'Appointment System']
+                tech: ['Frontend', 'Healthcare Management', 'Responsive Design', 'Patient Management', 'Appointment System'],
+                image: 'images/AL=SHIFA%20%20%20CLINIC%20IMAGE.png',
+                imageAlt: 'Al-Shifa Clinic healthcare management dashboard',
+                liveUrl: 'https://al-shifa-clinic-frontend.vercel.app/'
             },
             {
                 tag: 'Realtime',
                 title: 'Streamify',
-                desc: 'A real-time video calling application built with WebRTC peer connections, Socket.IO signalling, and a React frontend. Supports room creation via unique codes, in-call chat, and mute/camera toggle controls.',
-                tech: ['React', 'Node.js', 'Socket.IO', 'WebRTC', 'CSS Modules']
+                desc: 'Streamify is a modern real-time video calling and communication platform designed to help users connect, communicate, and build meaningful connections online. The platform provides a complete social communication experience with secure authentication, video calls, real-time messaging, friend discovery, notifications, groups, and customizable themes. Streamify demonstrates the development of a complete full-stack communication platform with real-time features and a modern responsive interface.',
+                focus: 'Real-time communication, video calling, social connectivity, and responsive UI.',
+                features: ['🔐 User Registration & Secure Login', '🎥 Real-Time Video Calling', '💬 Real-Time Messaging', '👥 Friend Discovery & Connections', '👨‍👩‍👧 Group Creation & Communication', '🔔 Notifications & Friend Requests', '🎨 Multiple UI Themes', '👤 Profile Management', '📱 Responsive Web Interface', '⚡ Fast & Interactive User Experience'],
+                tech: ['React.js', 'JavaScript', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'WebRTC', 'REST APIs', 'Git & GitHub'],
+                image: 'images/streamify-image.png',
+                imageAlt: 'Streamify real-time video calling interface',
+                liveUrl: 'https://streamify-video-calls-frontend-eight.vercel.app/login'
             }
         ];
 
@@ -1236,15 +1293,60 @@
         const lightboxDesc = document.getElementById('lightbox-desc');
         const lightboxTech = document.getElementById('lightbox-tech');
         const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxImageWrap = document.getElementById('lightbox-image-wrap');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxLiveLink = document.getElementById('lightbox-live-link');
+        const lightboxDetails = document.getElementById('lightbox-details');
+        const lightboxFocusWrap = document.getElementById('lightbox-focus-wrap');
+        const lightboxFocus = document.getElementById('lightbox-focus');
+        const lightboxFeaturesWrap = document.getElementById('lightbox-features-wrap');
+        const lightboxFeatures = document.getElementById('lightbox-features');
 
         window.openProjectModal = (i) => {
             const p = projData[i];
             lightboxTag.textContent = p.tag;
             lightboxTitle.textContent = p.title;
             lightboxDesc.textContent = p.desc;
+            if (p.focus || p.features) {
+                lightboxDetails.classList.remove('hidden');
+                if (p.focus) {
+                    lightboxFocus.textContent = p.focus;
+                    lightboxFocusWrap.classList.remove('hidden');
+                } else {
+                    lightboxFocusWrap.classList.add('hidden');
+                }
+                if (p.features) {
+                    lightboxFeatures.innerHTML = p.features.map(feature =>
+                        `<li class="flex items-start gap-2 leading-6"><span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent"></span><span>${feature}</span></li>`
+                    ).join('');
+                    lightboxFeaturesWrap.classList.remove('hidden');
+                } else {
+                    lightboxFeaturesWrap.classList.add('hidden');
+                }
+            } else {
+                lightboxDetails.classList.add('hidden');
+                lightboxFocusWrap.classList.add('hidden');
+                lightboxFeaturesWrap.classList.add('hidden');
+            }
+            if (p.image) {
+                lightboxImage.src = p.image;
+                lightboxImage.alt = p.imageAlt || p.title;
+                lightboxImageWrap.classList.remove('hidden');
+            } else {
+                lightboxImage.removeAttribute('src');
+                lightboxImage.alt = '';
+                lightboxImageWrap.classList.add('hidden');
+            }
             lightboxTech.innerHTML = p.tech.map(t =>
                 `<span class="text-xs font-mono text-accent bg-accent/10 border border-accent/25 px-3 py-1 rounded-full">${t}</span>`
             ).join('');
+            if (p.liveUrl) {
+                lightboxLiveLink.href = p.liveUrl;
+                lightboxLiveLink.classList.remove('hidden');
+            } else {
+                lightboxLiveLink.href = '#';
+                lightboxLiveLink.classList.add('hidden');
+            }
             lightbox.classList.add('open');
             document.body.style.overflow = 'hidden';
         };
