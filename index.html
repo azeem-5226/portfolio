@@ -80,6 +80,24 @@
             }
         }
 
+        /* Mobile navigation overlay */
+        #mobile-nav.mobile-nav-panel {
+            z-index: 49;
+            background: rgba(241, 245, 249, 0.98);
+        }
+
+        .dark #mobile-nav.mobile-nav-panel {
+            background: rgba(2, 6, 23, 0.98);
+        }
+
+        @media (max-width: 767px) {
+            #mobile-nav.mobile-nav-panel {
+                padding: 7rem 1.5rem 2rem;
+                justify-content: flex-start;
+                gap: 1.5rem;
+            }
+        }
+
         /* Glassmorphism Utilities */
         .glass {
             background: var(--glass-bg);
@@ -439,7 +457,8 @@
 
                 <!-- Mobile Menu Btn -->
                 <button id="mobile-menu-btn"
-                    class="md:hidden text-textMuted hover:text-textMain focus:outline-none cursor-pointer">
+                    class="md:hidden text-textMuted hover:text-textMain focus:outline-none cursor-pointer"
+                    aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -447,7 +466,7 @@
 
         <!-- Mobile Nav Overlay -->
         <div id="mobile-nav"
-            class="fixed inset-0 bg-bgMain/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+            class="mobile-nav-panel fixed inset-0 backdrop-blur-lg flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
             <a href="#home"
                 class="mobile-link text-2xl font-display text-textMain hover:text-accent transition-colors">Home</a>
             <a href="#skills"
@@ -1110,26 +1129,47 @@
         const mobileLinks = document.querySelectorAll('.mobile-link');
         let menuOpen = false;
 
+        function openMenu() {
+            menuOpen = true;
+            mobileNav.classList.remove('opacity-0', 'pointer-events-none');
+            mobileNav.classList.add('opacity-100', 'pointer-events-auto');
+            menuBtn.innerHTML = '<i class="fas fa-times text-2xl"></i>';
+            menuBtn.setAttribute('aria-label', 'Close navigation menu');
+            menuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            menuOpen = false;
+            mobileNav.classList.add('opacity-0', 'pointer-events-none');
+            mobileNav.classList.remove('opacity-100', 'pointer-events-auto');
+            menuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+            menuBtn.setAttribute('aria-label', 'Open navigation menu');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = 'auto';
+        }
+
         function toggleMenu() {
-            menuOpen = !menuOpen;
             if (menuOpen) {
-                mobileNav.classList.remove('opacity-0', 'pointer-events-none');
-                mobileNav.classList.add('opacity-100', 'pointer-events-auto');
-                menuBtn.innerHTML = '<i class="fas fa-times text-2xl"></i>';
-                document.body.style.overflow = 'hidden';
+                closeMenu();
             } else {
-                mobileNav.classList.add('opacity-0', 'pointer-events-none');
-                mobileNav.classList.remove('opacity-100', 'pointer-events-auto');
-                menuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
-                document.body.style.overflow = 'auto';
+                openMenu();
             }
         }
 
         menuBtn.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                if (menuOpen) toggleMenu();
+                if (menuOpen) closeMenu();
             });
+        });
+
+        mobileNav.addEventListener('click', (event) => {
+            if (event.target === mobileNav && menuOpen) closeMenu();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && menuOpen) closeMenu();
         });
 
         // --- Theme Toggle Logic ---
