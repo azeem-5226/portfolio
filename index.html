@@ -83,11 +83,13 @@
         /* Mobile navigation overlay */
         #mobile-nav.mobile-nav-panel {
             z-index: 49;
-            background: rgba(241, 245, 249, 0.98);
+            background: #f8fafc !important;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
         }
 
         .dark #mobile-nav.mobile-nav-panel {
-            background: rgba(2, 6, 23, 0.98);
+            background: #020617 !important;
         }
 
         @media (max-width: 767px) {
@@ -466,7 +468,7 @@
 
         <!-- Mobile Nav Overlay -->
         <div id="mobile-nav"
-            class="mobile-nav-panel fixed inset-0 backdrop-blur-lg flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+            class="mobile-nav-panel fixed inset-0 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
             <a href="#home"
                 class="mobile-link text-2xl font-display text-textMain hover:text-accent transition-colors">Home</a>
             <a href="#skills"
