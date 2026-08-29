@@ -343,6 +343,29 @@
             display: none;
         }
 
+        #lightbox-close {
+            position: fixed !important;
+            top: 1rem !important;
+            right: 1rem !important;
+            z-index: 9999 !important;
+            width: 3rem !important;
+            height: 3rem !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border: 0;
+            border-radius: 9999px;
+            background: #8b5cf6 !important;
+            color: #ffffff !important;
+            font-size: 2rem !important;
+            line-height: 1;
+            box-shadow: 0 0 24px rgba(139, 92, 246, 0.85);
+        }
+
+        #lightbox-close:hover {
+            background: #7c3aed !important;
+        }
+
         /* Project card action buttons */
         #portfolio-grid a[title="GitHub"] {
             background: #24292f;
@@ -977,10 +1000,6 @@
     <!-- Project Detail Modal -->
     <div id="lightbox"
         class="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
-        <button id="lightbox-close"
-            class="absolute top-6 right-6 text-textMain hover:text-accent text-3xl transition-colors cursor-pointer w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20">
-            &times;
-        </button>
         <div class="max-w-4xl w-full max-h-[90vh] overflow-y-auto glass-card rounded-3xl p-6 md:p-10" id="lightbox-content">
             <div id="lightbox-image-wrap" class="hidden mb-8 overflow-hidden rounded-2xl border border-borderMain bg-bgMain aspect-video">
                 <img id="lightbox-image" src="" alt="" class="w-full h-full object-contain">
@@ -1009,6 +1028,9 @@
                 </a>
             </div>
         </div>
+        <button id="lightbox-close" type="button" aria-label="Close project details" class="cursor-pointer">
+            &times;
+        </button>
     </div>
 
     <!-- Certificate Modal -->
